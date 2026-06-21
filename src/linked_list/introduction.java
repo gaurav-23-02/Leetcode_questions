@@ -1,5 +1,7 @@
 package linked_list;
 
+import java.sql.SQLOutput;
+
 public class introduction {
     public static int length(Node head){
         int count =0;
@@ -74,5 +76,6 @@ public class introduction {
         System.out.print(length(a));
         System.out.println();
         System.out.println(lengthr(a));
+        System.out.println(a);
     }
 }

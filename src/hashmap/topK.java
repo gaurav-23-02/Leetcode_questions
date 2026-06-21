@@ -18,7 +18,7 @@ public class topK {
         for(int i=0;i<nums.length;i++){
             map.put(nums[i],map.getOrDefault(nums[i],0)+1);
         }
-        List<Pair>ans = new ArrayList<>();
+        ArrayList<Pair>ans = new ArrayList<>();
         for(int key:map.keySet()){
             ans.add(new Pair(key,map.get(key)));
         }

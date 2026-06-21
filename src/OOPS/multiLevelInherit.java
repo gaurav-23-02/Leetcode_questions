@@ -1,14 +1,15 @@
 package OOPS;
 
-class A{
+class A1{
 
 }
-class B{
+class B1{
 
 }
-class C{
+class C1{
 
 }
+//NOT POSSIBLE IN JAVA
 public class multiLevelInherit {
     public static void main(String[] args) {
 
