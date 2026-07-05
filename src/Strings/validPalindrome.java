@@ -3,30 +3,23 @@ package Strings;
 public class validPalindrome {
     public static boolean isPalindrome(String s) {
         StringBuilder ans = new StringBuilder();
-        for(int i=0;i<s.length();i++){
-            if(s.charAt(i)>='a'&&s.charAt(i)<='z'){
-                ans.append(s.charAt(i));
-            }
-            if(s.charAt(i)>='A'&&s.charAt(i)<='Z'){
-                char a=Character.toLowerCase(s.charAt(i));
-                ans.append(a);
+        for (int i = 0; i < s.length(); i++) {
+            if (Character.isLetterOrDigit(s.charAt(i))) {
+                ans.append(Character.toLowerCase(s.charAt(i)));
             }
         }
+        String ans1 = ans.toString();
+        String revAns = ans.reverse().toString();
         System.out.println(ans);
-        String original=ans.toString();
-        String z = ans.reverse().toString();
-        System.out.println(z);
-        if(original.equals(z)){
+        System.out.println(revAns);
+        if (ans1.equals(revAns)) {
             return true;
         }
-        else{
-            return false;
-        }
-
+        return false;
     }
 
     public static void main(String[] args) {
-        String s="race a car";
+        String s = "0P";
         System.out.println(isPalindrome(s));
     }
 }
