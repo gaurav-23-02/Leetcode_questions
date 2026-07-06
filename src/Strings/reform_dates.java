@@ -1,31 +1,22 @@
 package Strings;
 
+import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.HashMap;
 
 import static java.lang.Integer.parseInt;
 
 public class reform_dates {
-    public static boolean reformatDate(String sentence) {
-        HashMap<Character,Integer>map = new HashMap<>();
-        String alpha="abcdefghijklmnopqrstuvwxyz";
-        for(int i=0;i<alpha.length();i++){
-            map.put(alpha.charAt(i), map.getOrDefault(alpha.charAt(i),0)+1);
-        }
-        for(int i=0;i<sentence.length();i++){
-            map.put(sentence.charAt(i),map.getOrDefault(sentence.charAt(i),0)+1);
-        }
-        for(int x:map.values()){
-            if(x==1){
-                return false;
-            }
-        }
-        return true;
+    public static String reformatDate(String num1, String num2) {
+        BigInteger x = new BigInteger(num1);
+        BigInteger y  = new BigInteger(num2);
+        return x.multiply(y)+"";
     }
 
     public static void main(String[] args) {
-        String sentence = "thequickbrownfoxjumpsoverthelzydog";
+        String num1="498828660196";
+        String num2="840477629533";
+        System.out.println(reformatDate(num1,num2));
 
-        System.out.println(reformatDate(sentence));
     }
 }
