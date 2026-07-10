@@ -50,7 +50,7 @@ public class wordEqualTo2Words {
     }
 
     public static void main(String[] args) {
-        String firstWord = "j", secondWord = "j", targetWord = "bi";
+        String firstWord = "acb", secondWord = "cba", targetWord = "cdb";
         System.out.println(isSumEqual(firstWord,secondWord,targetWord));
     }
 }

@@ -1,3 +1,5 @@
+package array;
+
 public class twoPointer {
     public static int getCommon(int[] nums1, int[] nums2) {
         int n=nums1.length;

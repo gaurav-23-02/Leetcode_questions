@@ -7,16 +7,22 @@ import java.util.HashMap;
 import static java.lang.Integer.parseInt;
 
 public class reform_dates {
-    public static String reformatDate(String num1, String num2) {
-        BigInteger x = new BigInteger(num1);
-        BigInteger y  = new BigInteger(num2);
-        return x.multiply(y)+"";
+    public static String reformatDate(String s) {
+        String[]words=s.split(" ");
+        System.out.println(Arrays.toString(words));
+        StringBuilder ans = new StringBuilder();
+        System.out.println(words[1]);
+        for(int i=0;i<words.length;i++){
+            if(i%2!=0){
+                ans.append(words[i]);
+            }
+        }
+        return "";
     }
 
     public static void main(String[] args) {
-        String num1="498828660196";
-        String num2="840477629533";
-        System.out.println(reformatDate(num1,num2));
-
+        String s="Ram aam khata hai";
+        //Ram maa khata iah
+        System.out.println(reformatDate(s));
     }
 }

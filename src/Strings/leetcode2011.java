@@ -13,13 +13,11 @@ public class leetcode2011 {
             }
         }
         return start;
-
     }
 
     public static void main(String[] args) {
         String[]operations = {"--X","X++","X++"};
         System.out.println(finalValueAfterOperations(operations));
     }
-
 
 }
