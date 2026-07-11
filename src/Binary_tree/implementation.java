@@ -15,9 +15,30 @@ import java.util.*;
         }
     public static void traversal(Node root){
         if(root==null)return;
+        System.out.println(root.data+"  ");
         traversal(root.left);
         traversal(root.right);
-        System.out.println(root.data+"  ");
+    }
+    public static int sum(Node root){
+            if(root==null)return 0;
+            return root.data+sum(root.left)+sum(root.right);
+    }
+    public static int mul(Node root){
+            if(root==null)return 1;
+            return root.data*mul(root.left)*mul(root.right);
+    }
+    public static int height(Node root){
+            if(root==null)return 0;
+            if(root.left==null&&root.right==null)return 0;
+            return 1+Math.max(height(root.left),height(root.right));
+    }
+    public static int maxVal(Node root){
+            if(root==null)return Integer.MIN_VALUE;
+            return Math.max(root.data,Math.max(maxVal(root.left),maxVal(root.right)));
+    }
+    public  static int minVal(Node root){
+            if(root==null)return Integer.MAX_VALUE;
+            return Math.min(root.data,Math.min(minVal(root.left),minVal(root.right)));
     }
      public static Node buildTree(Scanner sc){
         System.out.println("Enter root value");
@@ -47,5 +68,10 @@ import java.util.*;
         Scanner sc = new Scanner(System.in);
         Node root = buildTree(sc);
         traversal(root);
+        System.out.println("Height of the tree is: "+height(root));
+        System.out.println("Sum of the tree nodes are: "+sum(root));
+        System.out.println("Maximum value in tree is: "+maxVal(root));
+        System.out.println("Minimum value in the tree is: "+minVal(root));
+        System.out.println("Multiplication of every Node result in: "+mul(root));
     }
 }
