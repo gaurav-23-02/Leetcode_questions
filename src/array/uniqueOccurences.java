@@ -1,9 +1,6 @@
 package array;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 public class uniqueOccurences {
     public static boolean uniqueOccurrences(int[] arr) {
@@ -24,10 +21,36 @@ public class uniqueOccurences {
         }
         return true;
     }
+    public static int firstUniqueEven(int[] nums) {
+        if(nums.length==1)
+            return  nums[0];
+        HashMap<Integer,Integer>map = new HashMap<>();
+        for(int i=0;i<nums.length;i++){
+            map.put(nums[i],map.getOrDefault(nums[i],0)+1);
+        }
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]%2==0&&map.get(nums[i])==1){
+                return nums[i];
+            }
+        }
+
+        return -1;
+    }
+    public static boolean isPerfect(int n){
+        for(int i=2;i*i<=n;i++){
+            if((i*i)%n==0){
+                return true;
+            }
+        }
+        return false;
+    }
 
     public static void main(String[] args) {
         int[]arr={1,2};
-        System.out.println(uniqueOccurrences(arr));
+//        int[]nums={8,2};
+//        System.out.println(uniqueOccurrences(arr));
+//        System.out.println(firstUniqueEven(nums));
+        System.out.println(isPerfect(16));
 
     }
 }
