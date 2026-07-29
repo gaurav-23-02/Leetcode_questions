@@ -1,5 +1,7 @@
 package Binary_tree;
 
+import com.sun.source.tree.Tree;
+
 import java.util.*;
 import java.util.Queue;
 
@@ -36,6 +38,22 @@ public class bfs_ListOfLists {
             if(curr.right!=null)q.add(curr.right);
         }
         return list;
+    }
+    public static void traversal(TreeNode curr,int level,List<List<Integer>>ans){
+        if(curr==null){
+            return;
+        }
+        if(ans.size()==level){
+            ans.add(new ArrayList<>());
+        }
+        ans.get(level).add(curr.val);
+        traversal(curr.left,level+1,ans);
+        traversal(curr.right,level+1,ans);
+    }
+    public static List<List<Integer>> levelOrderRecursive(TreeNode root) {
+        List<List<Integer>> ans = new ArrayList<>();
+        traversal(root,0,ans);
+        return ans;
     }
     public static List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>>ans = new ArrayList<>();
@@ -90,5 +108,7 @@ public class bfs_ListOfLists {
         System.out.println(bfs(root));
         System.out.println("Modified LEVEL order Traversal: ");
         System.out.println(levelOrder(root));
+        System.out.println("Level Order traversal Recursive");
+        System.out.println(levelOrderRecursive(root));
     }
 }
