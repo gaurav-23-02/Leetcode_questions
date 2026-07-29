@@ -27,7 +27,6 @@ public class bfs_ListOfLists {
         return list;
     }
     public static List<Integer> bfs(TreeNode root){
-        List<List<Integer>>ans = new ArrayList<>();
         Queue<TreeNode> q = new LinkedList<>();
         List<Integer>list = new ArrayList<>();
         q.add(root);
