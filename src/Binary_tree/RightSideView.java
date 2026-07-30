@@ -1,9 +1,6 @@
 package Binary_tree;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class RightSideView {
     public static class TreeNode{
@@ -64,10 +61,34 @@ public class RightSideView {
         }
         return root;
     }
+    public static int sumOfLeftLeaves(TreeNode root) {
+        int sum=0;
+        Stack<TreeNode>st = new Stack<>();
+        st.push(root);
+        while(!st.isEmpty()){
+            TreeNode curr = st.pop();
+            if(curr.left!=null){
+                if(curr.left.left==null&&curr.left.right==null){
+                    sum+=curr.left.val;
+                }
+                else{
+                    st.push(curr.left);
+                }
+            }
+            if(curr.right!=null)st.push(curr.right);
+        }
+
+        return sum;
+    }
 
     public static void main(String[] args) {
         Integer[] root1 = {1,2,3,null,5,null,4};
         TreeNode root = buildTree(root1);
+
+        Integer[] root2 = {1,2,3,4,5};
+        TreeNode rootX = buildTree(root2);
         System.out.println(rightSideView(root));
+        System.out.println(sumOfLeftLeaves(rootX));
+
     }
 }
