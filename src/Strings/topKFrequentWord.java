@@ -1,24 +1,31 @@
 package Strings;
 import java.util.*;
 public class topKFrequentWord {
-    public static long countVowels(String word) {
-        long count=0;
-        for(int i=0;i<word.length();i++){
-            if(word.charAt(i)=='a'||word.charAt(i)=='e'||word.charAt(i)=='i'||
-                    word.charAt(i)=='o'||word.charAt(i)=='u'){
-                count++;
+    public static List<String> topKFrequent(String[] words, int k) {
+        HashMap<String ,Integer>map = new HashMap<>();
+        for(int i=0;i<words.length;i++){
+            map.put(words[i],map.getOrDefault(words[i],0)+1);
+        }
+        System.out.println(map);
+        ArrayList<String>ans = new ArrayList<>();
+        ArrayList<Integer>maxElements = new ArrayList<>();
+        for(int x:map.values()){
+            maxElements.add(x);
+        }
+        Collections.sort(maxElements);
+        for(int i=maxElements.size()-1;i<maxElements.size()-k;i--){
+            for(Map.Entry<String,Integer>entry:map.entrySet()){
+                ans.add(entry.getKey());
             }
         }
-        long ans = (count*(count+1));
         return ans;
 
     }
 
 
     public static void main(String[] args) {
-        String[]words={"the","day","is","sunny","the","the","the","sunny","is","is"};
-        int k=4;
-        System.out.println(countVowels("aba"));
-
+        String[]words={"i","love","leetcode","i","love","coding"};
+        int k=2;
+        System.out.println(topKFrequent(words,k));
     }
 }
