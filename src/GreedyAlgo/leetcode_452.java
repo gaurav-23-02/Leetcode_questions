@@ -18,6 +18,9 @@ public class leetcode_452 {
             ans.add(new Pair(points[i][0],points[i][1]));
         }
         ans.sort((a,b)->Integer.compare(a.end,b.end));
+        for(Pair pairs:ans){
+            System.out.println(pairs.start+" "+ pairs.end);
+        }
         int count=1;
         int n=ans.get(0).end;
         for(int i=1;i<ans.size();i++){
