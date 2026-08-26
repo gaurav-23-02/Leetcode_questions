@@ -15,5 +15,6 @@ public class sumOfDigit {
         int n=1234;
         System.out.println(sum(n));
         System.out.println(count(n));
+        System.out.println(n);
     }
 }
