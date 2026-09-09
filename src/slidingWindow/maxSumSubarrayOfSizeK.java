@@ -1,8 +1,11 @@
 package slidingWindow;
 
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+
 public class maxSumSubarrayOfSizeK {
     public static int maxSubarraySum(int[] arr, int k) {
-        // Code here
+        // Code here  
         int sum=0;
         for(int i=0;i<k;i++){
             sum+=arr[i];
@@ -15,6 +18,7 @@ public class maxSumSubarrayOfSizeK {
         }
         return sum;
     }
+
 
     public static void main(String[] args) {
         int[]arr={1,4,2,10,23,3,1,0,20};
