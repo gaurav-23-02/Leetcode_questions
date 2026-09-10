@@ -12,6 +12,18 @@ public class fiboUsingDP {
          }
          return store.get(n);
     }
+    public static int helper(int[]dp,int n){
+        if(n==1||n==0)return n;
+        if(dp[n]==-1){
+            dp[n]=helper(dp,n-1)+helper(dp,n-2);
+        }
+        return dp[n];
+    }
+    public static int fiboInt(int n){
+        int[]dp=new int[n+1];
+        Arrays.fill(dp,-1);
+        return helper(dp,n);
+    }
     public static int fiboIterative(int n){
         ArrayList<Integer>dp = new ArrayList<>();
         dp.add(0);
@@ -27,5 +39,7 @@ public class fiboUsingDP {
         System.out.println(fibo(n,map));
         System.out.println(map);
         System.out.println(fiboIterative(n));
+        System.out.println("Memoization using the dp array");
+        System.out.println(fiboInt(6));
     }
 }
