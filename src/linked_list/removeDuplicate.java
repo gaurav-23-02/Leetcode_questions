@@ -37,6 +37,17 @@ public class removeDuplicate {
         System.out.println(map);
         return build(ans);
     }
+    static ListNode reverseBetween(ListNode head, int left, int right) {
+        List<Integer>list = new ArrayList<>();
+        ListNode curr=head;
+        while(curr!=null){
+            list.add(curr.val);
+            curr=curr.next;
+        }
+
+        System.out.println(list);
+        return curr;
+    }
     public static ListNode buildLL(int[]arr){
         if(arr.length==0)return null;
         ListNode head = new ListNode(arr[0]);
@@ -50,6 +61,9 @@ public class removeDuplicate {
     public static void main(String[] args) {
         int[]head1 = {1,2,3,3,4,4,5};
         ListNode head=buildLL(head1);
+        int[]head2 = {1,2,3,4,5};
+        ListNode head11=buildLL(head2);
+        System.out.println(reverseBetween(head11,2,4));
         System.out.println(deleteDuplicates(head));
     }
 }
